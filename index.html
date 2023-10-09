@@ -9,13 +9,20 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: #F8F0E5;
+            color: #0F2C59;
+        }
+        
+        a {
+
+            text-decoration: none; /* Remove underline */
+            color: #FAEBD8; /* Change the color to your desired color */
+            font-size: 10pt;
         }
 
         header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
+            background-color: #0F2C59;
+            color: #FAEBD8;
             text-align: center;
             padding: 20px 0;
         }
@@ -31,29 +38,31 @@
         nav {
             text-align: center;
             margin: 15px 0;
+            background-color: #FAEBD8;
+            padding: 10px 0;
         }
 
         nav a {
             margin: 0 10px;
-            color: #3498db;
+            color: #0F2C59;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         nav a:hover {
-            color: #2c3e50;
+            color: #F8F0E5;
         }
 
         section {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #FAEBD8;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h2, h3 {
-            border-bottom: 2px solid #3498db;
+        h2 {
+            border-bottom: 2px solid #0F2C59;
             padding-bottom: 5px;
         }
 
@@ -66,112 +75,166 @@
             margin-bottom: 10px;
         }
 
+        /* Hover effect for section titles and links */
+        h2:hover, h3:hover, a:hover {
+            transform: scale(1.03); /* Slightly enlarges the text or link */
+            transition: transform 0.3s; /* Smoothens the enlargement effect */
+        }
+
+        /* For fade-in effect on sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.5s, transform 0.5s, visibility 0.5s;
+            transition-delay: 0.3s;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        /* #main {
+            /* Adjust these values as needed */
+            padding-bottom: 50vh; 
+            background-image: url("background.png");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        } */
+
     </style>
+        <script>
+            // Function to add scroll and visibility events
+            document.addEventListener('DOMContentLoaded', function() {
+                const sections = document.querySelectorAll('.fade-in');
+                
+                // Check if section is visible
+                const checkVisibility = function(section) {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const isVisible = (sectionTop - window.innerHeight) < 0;
+                    return isVisible;
+                }
+    
+                // On scroll, check if sections are visible and add animation
+                window.addEventListener('scroll', function() {
+                    sections.forEach(function(section) {
+                        if (checkVisibility(section)) {
+                            section.classList.add('visible');
+                        }
+                    });
+                });
+            });
+        </script>
 </head>
 <body>
     <header>
         <h1>Aghyad Deeb</h1>
-        <p><a href="mailto:aghyad deeb@college.harvard.edu">aghyad deeb@college.harvard.edu</a></p>
-        <p><a href="https://linkedin.com/in/aghyad-deeb-601658220">LinkedIn</a> | <a href="https://github.com/aptl26">GitHub</a> | <a href="https://aghyad.fly.dev">Personal website</a></p>
+        <p> </p>
+        <p><a href="mailto:aghyad deeb@college.harvard.edu">aghyad deeb@college.harvard.edu</a> | <a href="https://linkedin.com/in/aghyad-deeb-601658220">LinkedIn</a> | <a href="https://github.com/aptl26">GitHub</a> | <a href="https://aghyad.fly.dev">Personal website</a></p>
     </header>
-    <section>
-        <h2>Education</h2>
-        <p>Harvard University, Cambridge, MA</p>
-        <p>Bachelor of Arts in Computer Science, GPA: 3.731, Sep. 2021 – May 2025</p>
-        <p>Masters of Science in Computer Science (Anticipated)</p>
-        <h3>Relevant Coursework:</h3>
-        <p>Data Structures and Algorithms, Systems, Machine Learning at Scale, TinyML, Data Science, Abstraction and Design in Computation, Probability, Vector Calculus and Linear Algebra</p>
-    </section>
-    <!-- The rest of the sections can follow a similar structure as above, such as Experience, Projects, and Technical Skills -->
-    <section>
-        <h2>Experience</h2>
-        <div>
-            <h3>Software Engineering Intern</h3>
-            <p><strong>PTC, Boston, MA</strong> | June 2023 – August 2023</p>
-            <ul>
-                <li>Conducted load tests, resolved bottlenecks, and increased system capacity by 30%</li>
-                <li>Leveraged data analysis methods to study system performance and identify potential improvements</li>
-                <li>Acquired hands-on experience with cloud computing and its application in high-performance data analysis</li>
-                <li>Utilized Gitlab for version control and maintained documentation of research methods and findings</li>
-                <li>Examined time-series data with Kibana and Grafana, and analyzed outcomes using pandas and matplotlib</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Software Engineer</h3>
-            <p><strong>Tech for Social Good, Cambridge, MA</strong> | January 2022 – December 2022</p>
-            <ul>
-                <li>Developed a Next.js based web app that imports data and generates slides for a client with a team</li>
-                <li>Designed responsive user interfaces using Material UI, optimizing CSS for different screen sizes</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Lab Teaching Assistant</h3>
-            <p><strong>Harvard University, Cambridge, MA</strong> | September 2022 – December 2022</p>
-            <ul>
-                <li>Instructed 15 students on data collection methods, image recognition software, and sensors</li>
-                <li>Taught students Chi-squared analysis, data visualization, and accuracy evaluation using SciPy</li>
-            </ul>
-        </div>
-        
-        <div>
-            <h3>Data Analyst</h3>
-            <p><strong>Harvard Data Analytics Group, Cambridge, MA</strong> | January 2023 – May 2023</p>
-            <ul>
-                <li>Created interactive data visualizations with data nodes on Sigma.js</li>
-                <li>Conducted analysis on shortest paths in dataset to identify key data points and patterns</li>
-            </ul>
-        </div>
-    </section>
-    <section>
-        <h2>Projects</h2>
-        <div>
-            <h3>Confidential Hardware Project</h3>
-            <p><strong>C, C++, ESP-IDF</strong> | January 2023 – Present</p>
-            <ul>
-                <li>Established SPI communication between ESP32 and an actuator using C, C++</li>
-                <li>Implemented concurrent management of Bluetooth SPP communication, actuator control, and sensory input</li>
-                <li>Identified and fixed code inefficiencies to minimize latency, used a logic analyzer for debugging SPI</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Blog Saver</h3>
-            <p><strong>NodeJS, MongoDB, React, OpenAI API, Git</strong> | November 2022 – January 2023</p>
-            <ul>
-                <li>Developed a full-stack web application using NodeJS serving a REST API with React as the frontend</li>
-                <li>Stored user data and blogs in a MongoDB database with Mongoose</li>
-                <li>Used JSON Web Token for authentication, Jest for unit testing, and ESLint to maintain good style practices</li>
-            </ul>
-        </div>
+    <div id="main">
+        <section>
+            <h2>Education</h2>
+            <p>Harvard University, Cambridge, MA</p>
+            <p>Bachelor of Arts in Computer Science, GPA: 3.731, Sep. 2021 – May 2025</p>
+            <p>Masters of Science in Computer Science (Anticipated)</p>
+            <h3>Relevant Coursework:</h3>
+            <p>Data Structures and Algorithms, Systems, Machine Learning at Scale, TinyML, Data Science, Abstraction and Design in Computation, Probability, Vector Calculus and Linear Algebra</p>
+        </section>
+        <!-- The rest of the sections can follow a similar structure as above, such as Experience, Projects, and Technical Skills -->
+        <section>
+            <h2>Experience</h2>
+            <div>
+                <h3>Software Engineering Intern</h3>
+                <p><strong>PTC, Boston, MA</strong> | June 2023 – August 2023</p>
+                <ul>
+                    <li>Conducted load tests, resolved bottlenecks, and increased system capacity by 30%</li>
+                    <li>Leveraged data analysis methods to study system performance and identify potential improvements</li>
+                    <li>Acquired hands-on experience with cloud computing and its application in high-performance data analysis</li>
+                    <li>Utilized Gitlab for version control and maintained documentation of research methods and findings</li>
+                    <li>Examined time-series data with Kibana and Grafana, and analyzed outcomes using pandas and matplotlib</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Software Engineer</h3>
+                <p><strong>Tech for Social Good, Cambridge, MA</strong> | January 2022 – December 2022</p>
+                <ul>
+                    <li>Developed a Next.js based web app that imports data and generates slides for a client with a team</li>
+                    <li>Designed responsive user interfaces using Material UI, optimizing CSS for different screen sizes</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Lab Teaching Assistant</h3>
+                <p><strong>Harvard University, Cambridge, MA</strong> | September 2022 – December 2022</p>
+                <ul>
+                    <li>Instructed 15 students on data collection methods, image recognition software, and sensors</li>
+                    <li>Taught students Chi-squared analysis, data visualization, and accuracy evaluation using SciPy</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 >Data Analyst</h3>
+                <p><strong>Harvard Data Analytics Group, Cambridge, MA</strong> | January 2023 – May 2023</p>
+                <ul>
+                    <li>Created interactive data visualizations with data nodes on Sigma.js</li>
+                    <li>Conducted analysis on shortest paths in dataset to identify key data points and patterns</li>
+                </ul>
+            </div>
+        </section>
+        <section >
+            <h2>Projects</h2>
+            <div>
+                <h3>Confidential Hardware Project</h3> 
+                <p><strong>C, C++, ESP-IDF</strong> | January 2023 – Present</p>
+                <ul>
+                    <li>Established SPI communication between ESP32 and an actuator using C, C++</li>
+                    <li>Implemented concurrent management of Bluetooth SPP communication, actuator control, and sensory input</li>
+                    <li>Identified and fixed code inefficiencies to minimize latency, used a logic analyzer for debugging SPI</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Blog Saver</h3>
+                <p><strong>NodeJS, MongoDB, React, OpenAI API, Git</strong> | November 2022 – January 2023</p>
+                <ul>
+                    <li>Developed a full-stack web application using NodeJS serving a REST API with React as the frontend</li>
+                    <li>Stored user data and blogs in a MongoDB database with Mongoose</li>
+                    <li>Used JSON Web Token for authentication, Jest for unit testing, and ESLint to maintain good style practices</li>
+                </ul>
+            </div>
 
-        <div>
-            <h3>Spotify Popularity Predictor</h3>
-            <p><strong>SKLearn, Pandas, MatplotLib, Seaborn</strong> | November 2022 – December 2022</p>
-            <ul>
-                <li>Built and trained a machine learning model to predict songs popularity</li>
-                <li>Utilized Logistic Regression, Random Forests, and AdaBoost to optimize accuracy</li>
-            </ul>
-        </div>
+            <div>
+                <h3>Spotify Popularity Predictor</h3>
+                <p><strong>SKLearn, Pandas, MatplotLib, Seaborn</strong> | November 2022 – December 2022</p>
+                <ul>
+                    <li>Built and trained a machine learning model to predict songs popularity</li>
+                    <li>Utilized Logistic Regression, Random Forests, and AdaBoost to optimize accuracy</li>
+                </ul>
+            </div>
 
-        <div>
-            <h3>Tiny Autograd Engine</h3>
-            <p><strong>Python, Neural Networks</strong> | May 2023 – July 2023</p>
-            <ul>
-                <li>Built an auto gradient engine operating over scalar values to perform back-propagation</li>
-                <li>Utilized the engine to construct deep neural networks, gained profound understanding of deep learning</li>
-            </ul>
-        </div>
-        <!-- Add more projects in similar format -->
-    </section>
-    <section>
-        <h2>Technical Skills</h2>
-        <h3>Languages:</h3>
-        <p>JavaScript, Python, C/C++, HTML/CSS</p>
-        <h3>Frameworks:</h3>
-        <p>React, NodeJS, Flask, MongoDB, Material-UI, NextJS</p>
-        <h3>Developer Tools:</h3>
-        <p>Git, Visual Studio Code</p>
-        <h3>Libraries:</h3>
-        <p>pandas, NumPy, Matplotlib, JSON Web Token, ESLint, Cheerio, Mongoose</p>
-    </section>
+            <div>
+                <h3>Tiny Autograd Engine</h3>
+                <p><strong>Python, Neural Networks</strong> | May 2023 – July 2023</p>
+                <ul>
+                    <li>Built an auto gradient engine operating over scalar values to perform back-propagation</li>
+                    <li>Utilized the engine to construct deep neural networks, gained profound understanding of deep learning</li>
+                </ul>
+            </div>
+            <!-- Add more projects in similar format -->
+        </section>
+        <section>
+            <h2>Technical Skills</h2>
+            <h3>Languages:</h3>
+            <p>JavaScript, Python, C/C++, HTML/CSS</p>
+            <h3>Frameworks:</h3>
+            <p>React, NodeJS, Flask, MongoDB, Material-UI, NextJS</p>
+            <h3>Developer Tools:</h3>
+            <p>Git, Visual Studio Code</p>
+            <h3>Libraries:</h3>
+            <p>pandas, NumPy, Matplotlib, JSON Web Token, ESLint, Cheerio, Mongoose</p>
+        </section>
+    </div>
 </body>
 </html>
